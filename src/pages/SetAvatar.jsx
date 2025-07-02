@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"; 
+import React, { useEffect, useState, useCallback } from "react"; 
 import styled from "styled-components";
 import axios from "axios";
 import loader from "../assets/loader.gif";
@@ -28,7 +28,7 @@ export default function SetAvatar() {
     }
   }, [navigate]);
 
-  const fetchAvatars = async () => {
+  const fetchAvatars = useCallback(async () => {
     setIsLoading(true);
     setLoadingError(false);
     try {
@@ -45,7 +45,7 @@ export default function SetAvatar() {
     } finally {
       setIsLoading(false);
     }
-  };
+  },[]);
 
   useEffect(() => {
     fetchAvatars();
