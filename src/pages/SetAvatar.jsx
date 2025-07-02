@@ -49,7 +49,7 @@ export default function SetAvatar() {
 
   useEffect(() => {
     fetchAvatars();
-  }, []);
+  }, [fetchAvatars]);
 
   const setProfilePicture = async () => {
     if (selectedAvatar === undefined) {
